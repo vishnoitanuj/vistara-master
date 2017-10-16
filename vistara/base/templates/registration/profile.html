@@ -1,0 +1,49 @@
+{% extends "base/base_generic.html" %}
+
+
+{% block content %}
+<div class="container">
+    <br>
+</div>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-4">
+    <div class="card">
+        <div class="card-header text-center"><strong>Received Messages</strong></div>
+            <div class="card-body">
+                {% for each in msg_list %}
+                {% if each.ifactor > 5 %}
+                <p style="background-color: red">{{ each.message }}</p>
+                {% endif %}
+                {% if each.ifactor <= 5 %}
+                <p style="background-color: #b3d7ff">{{ each.message }}</p>
+                {% endif %}
+            <hr>
+                {% endfor %}
+            </div>
+
+    </div>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+        <div class="card-header text-center"><strong>Sent Messages</strong></div>
+            <div class="card-body">
+                {% for each in sent_msg_list %}
+                {% if each.ifactor > 5 %}
+                <p style="background-color: red">{{ each.message }}</p>
+                {% endif %}
+                {% if each.ifactor <= 5 %}
+                <p style="background-color: #b3d7ff">{{ each.message }}</p>
+                {% endif %}
+            <hr>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+{%endblock%}
